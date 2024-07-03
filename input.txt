@@ -1,0 +1,169 @@
+<input
+  type="text"
+  name="nome"
+  placeholder="Nome"
+  className="register-input"
+  value={values.nome || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="apelido"
+  placeholder="Apelido ou nome social"
+  className="register-input"
+  value={values.apelido || ""}
+  onChange={handleAddValues}
+/>
+
+<select
+  name="sexo"
+  value={values.sexo}
+  onChange={handleAddValues}
+  className="register-input"
+>
+  <option value="">Selecione</option>
+  <option value="masculino">Masculino</option>
+  <option value="feminino">Feminino</option>
+  <option value="outro">Outro</option>
+</select>
+
+<input
+  type="text"
+  name="rg"
+  placeholder="RG"
+  className="register-input"
+  value={values.rg || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="ssp"
+  placeholder="SSP"
+  className="register-input"
+  value={values.ssp || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="cpf"
+  placeholder="CPF"
+  className="register-input"
+  value={values.cpf || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="cartaoSUS"
+  placeholder="Cartão SUS"
+  className="register-input"
+  value={values.cartaoSUS || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="endereco.residencial"
+  placeholder="Residencial"
+  className="register-input"
+  value={values.endereco.residencial || ""}
+  onChange={handleEnderecoChange}
+/>
+
+<input
+  type="text"
+  name="endereco.numero"
+  placeholder="Número"
+  className="register-input"
+  value={values.endereco.numero || ""}
+  onChange={handleEnderecoChange}
+/>
+
+<input
+  type="text"
+  name="endereco.bairro"
+  placeholder="Bairro"
+  className="register-input"
+  value={values.endereco.bairro || ""}
+  onChange={handleEnderecoChange}
+/>
+
+<input
+  type="text"
+  name="endereco.complemento"
+  placeholder="Complemento"
+  className="register-input"
+  value={values.endereco.complemento || ""}
+  onChange={handleEnderecoChange}
+/>
+
+<input
+  type="text"
+  name="endereco.municipio"
+  placeholder="Município"
+  className="register-input"
+  value={values.endereco.municipio || ""}
+  onChange={handleEnderecoChange}
+/>
+
+<input
+  type="text"
+  name="endereco.pontoReferencia"
+  placeholder="Ponto de referência"
+  className="register-input"
+  value={values.endereco.pontoReferencia || ""}
+  onChange={handleEnderecoChange}
+/>
+
+<input
+  type="text"
+  name="contato1"
+  placeholder="Contato 1"
+  className="register-input"
+  value={values.contato1 || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="contato2"
+  placeholder="Contato 2"
+  className="register-input"
+  value={values.contato2 || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="nomePai"
+  placeholder="Nome do Pai"
+  className="register-input"
+  value={values.nomePai || ""}
+  onChange={handleAddValues}
+/>
+
+<input
+  type="text"
+  name="nomeMae"
+  placeholder="Nome da Mãe"
+  className="register-input"
+  value={values.nomeMae || ""}
+  onChange={handleAddValues}
+/>
+
+<select
+  name="bolsaFamilia.programa"
+  value={values.bolsaFamilia.programa}
+  onChange={handleBolsaFamiliaChange}
+  className="register-input"
+>
+  <option value="">Selecione</option>
+  <option value="bolsaFamilia">Bolsa Família</option>
+</select>
+
+<input
+  type="text"
+  name="bolsa
