@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Header from './components/header'
+import Header from './components/header';
 import FormPessoaFisica from './components/formpessoafisica/FormPessoaFisica';
-import FormDialogPessoaFisica from './components/dialog/dialogFormPessoaFisica';
-import CardPessoaFisica from './components/cards/cardFormPessoaFisica';
+import ServicoSocial from './components/servicosocial/ServicoSocial';
+
+
+
+
 
 const App = () => {
   return (
@@ -14,7 +17,7 @@ const App = () => {
       <Routes>
         
         <Route path="/pessoa-fisica" element={ <FormPessoaFisica/> } />
-        
+        <Route path="/servico-social" element={ <ServicoSocial/> } />
         {/* Adicione outras rotas conforme necessário */}
         
       </Routes>

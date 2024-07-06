@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import CardPessoaFisica from "../cards/cardFormPessoaFisica";
 import Header from "../header";
+import ServicoSocial from "../servicosocial/ServicoSocial";
+import DespesasFamiliares from "../servicosocial/DespesaFamiliar";
+
+
 
 
 
@@ -353,6 +357,11 @@ Serviços: <select id="servicos"
         </select>
 
 
+
+
+
+
+
         <button onClick={handleRegisterPessoaFisica} className="register-button">
           Cadastrar
         </button>
@@ -360,6 +369,8 @@ Serviços: <select id="servicos"
 
       {typeof listPessoaFisica !== "undefined" && listPessoaFisica.sort((a, b) => b.id - a.id).map((value) => {
         return (
+// precisa ser atualizado conforme os inputs:
+
         <CardPessoaFisica
           key={value.id}
           listPessoaFisica={listPessoaFisica}
