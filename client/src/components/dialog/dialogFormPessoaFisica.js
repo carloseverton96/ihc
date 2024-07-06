@@ -147,9 +147,9 @@ export default function FormDialogPessoaFisica(props) {
 
           <TextField
             margin="dense"
-            id="funcao"
-            label="funcao"
-            defaultValue={props.funcao}
+            id="sexo"
+            label="sexo"
+            defaultValue={props.sexo}
             type="text"
             fullWidth
             onChange={handleChangeValues}

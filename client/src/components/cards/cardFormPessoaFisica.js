@@ -36,7 +36,7 @@ export default function CardPessoaFisica(props) {
       {/* ESTA PARTE DE BAIXO É O CARD QUE APARECE AS INFORMAÇÕES - ADICIONEI O PRINCIPAL */}
 
       <div className="card-container" onClick={() => setOpen(true)}>
-        <h1 className="card-title">nome:{props.name} - Matrícula:{props.matricula} - Conselho:{props.conselhodeclasse} </h1>
+        <h1 className="card-title">nome:{props.name} - Matrícula:{props.apelido} - Conselho:{props.sexo} </h1>
         <p className="card-id">{props.id}</p>
         <p className="card-cartegory"> Nº Conselho:{props.numeroconselhodeclasse} - Endereço:{props.endereco},{props.numero}, Bairro:{props.bairro} </p>
         <h3 className="card-cost"> </h3>

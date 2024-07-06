@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const mysql = require("mysql2/promise");
+
 const cors = require("cors");
 
-const db = mysql.createPool({
+const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "password",
@@ -13,171 +14,92 @@ const db = mysql.createPool({
 app.use(express.json());
 app.use(cors());
 
-//REQUISIÇÕES PARA PESSOA JURIDICA
-app.post("/register", (req, res) => {
-  const { name } = req.body;
-  const { apelido } = req.body;
-  const { sexo } = req.body;
-  
+// REQUISIÇÕES PARA PESSOA FÍSICA
 
+// Cadastro
+app.post("/register/pessoa-fisica", async (req, res) => {
+  try {
+    const { name, apelido, sexo } = req.body;
 
-  let mysql = "INSERT INTO formpessoafisica ( name, apelido, sexo) VALUES ( ?, ?, ? )";
-  db.query(mysql, [ name, apelido, sexo ], (err, result) => {
-    res.send(result);
-  });
+    const [result] = await pool.query(
+      "INSERT INTO formpessoafisica (name, apelido, sexo) VALUES (?, ?, ?)",
+      [name, apelido, sexo]
+    );
+
+    res.send({ message: "Pessoa física cadastrada com sucesso!", id: result.insertId });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Erro ao cadastrar pessoa física" });
+  }
 });
 
-app.post("/search", (req, res) => {
-  
-  const { name } = req.body;
-  
-  let mysql =
-    "SELECT * from formpessoafisica WHERE cnpj = ?, esfempresaunidade = ?, razaosocial = ?, nomefantasia = ?, cnes = ?, cpfresponsavellegal = ?, nomeresponsavellegal = ?, cpfresponsaveltecnico = ?, nomeresponsaveltecnico = ?, numeroresponsaveltecnico = ?, endereco = ?, numero = ?, bairro = ?, complemento = ?, municipio = ?, contato1 = ?, contato2 = ?, anocadastro = ?";
-  db.query(mysql, [ name, esfempresaunidade, razaosocial, nomefantasia, cnes, cpfresponsavellegal, nomeresponsavellegal, cpfresponsaveltecnico, nomeresponsaveltecnico, numeroresponsaveltecnico, endereco, numero, bairro, complemento, municipio, contato1, contato2, anocadastro ], (err, result) => {
-    if (err) res.send(err);
-    res.send(result);
-  });
+// Busca
+app.post("/search/pessoa-fisica", async (req, res) => {
+  try {
+    const { name, apelido, sexo } = req.body;
+
+    const [results] = await pool.query(
+      "SELECT * FROM formpessoafisica WHERE name = ? AND apelido = ? AND sexo = ?",
+      [name, apelido, sexo]
+    );
+
+    res.send(results);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Erro ao buscar pessoa física" });
+  }
 });
 
-app.get("/getCards", (req, res) => {
-  let mysql = "SELECT * FROM pessoajuridica";
-  db.query(mysql, (err, result) => {
-    if (err) {
-      console.log(err);
+// Obter todas as pessoas físicas
+app.get("/getCards/pessoa-fisica", async (req, res) => {
+  try {
+    const [results] = await pool.query("SELECT * FROM formpessoafisica");
+    res.send(results);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Erro ao buscar pessoas físicas" });
+  }
+});
+
+// Editar
+app.put("/edit/pessoa-fisica", async (req, res) => {
+  try {
+    const { id, name, sexo } = req.body;
+
+    const [result] = await pool.query(
+      "UPDATE formpessoafisica SET name = ?, sexo = ? WHERE id = ?",
+      [name, sexo, id]
+    );
+
+    if (result.affectedRows === 0) {
+      res.status(404).send({ message: "Pessoa física não encontrada" });
     } else {
-      res.send(result);
+      res.send({ message: "Pessoa física editada com sucesso!" });
     }
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Erro ao editar pessoa física" });
+  }
 });
 
+// Excluir
+app.delete("/delete/pessoa-fisica/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
 
-//REQUISIÇÕES PARA PESSOA FÍSICA
+    const [result] = await pool.query("DELETE FROM formpessoafisica WHERE id = ?", [id]);
 
-app.post("/register/pessoa-fisica", (req, res) => {
-     const { name } = req.body;
-   const { apelido } = req.body;
-   const { sexo } = req.body;
-   
-
-
-  let mysql = "INSERT INTO formpessoafisica ( name, apelido, sexo) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
-  db.query(mysql, [ name, apelido, sexo ], (err, result) => {
-    res.send(result);
-  });
-});
-
-app.post("/search/pessoa-fisica", (req, res) => {
-  
-   const { name } = req.body;
-   const { apelido } = req.body;
-   const { sexo } = req.body;
-   const { matricula } = req.body;
-   const { email } = req.body;
-   const { cpf } = req.body;
-   const { conselhodeclasse } = req.body;
-   const { numeroconselhodeclasse } = req.body;
-   const { especialidade } = req.body;
-   const { endereco } = req.body;
-   const { numero } = req.body;
-   const { bairro } = req.body;
-   const { complemento } = req.body;
-   const { municipio } = req.body;
-   const { contato3 } = req.body;
-   const { contato4 } = req.body;
-   const { anocadastro } = req.body;
-  
-  let mysql =
-    "SELECT * from formpessoafisica WHERE name = ?, apelido = ?, funcao = ?, matricula = ?, email = ?, cpf = ?, conselhodeclasse = ?, numeroconselhodeclasse = ?, especialidade = ?, endereco = ?, numero = ?, bairro = ?, complemento = ?, municipio = ?, contato1 = ?, contato2 = ?, anocadastro = ?";
-  db.query(mysql, [ name, apelido, funcao, matricula, email, cpf, conselhodeclasse, numeroconselhodeclasse, especialidade, endereco, numero, bairro, complemento, municipio, contato3, contato4, anocadastro ], (err, result) => {
-    if (err) res.send(err);
-    res.send(result);
-  });
-});
-
-app.get("/getCards/pessoa-fisica", (req, res) => {
-  let mysql = "SELECT * FROM formpessoafisica";
-  db.query(mysql, (err, result) => {
-    if (err) {
-      console.log(err);
+    if (result.affectedRows === 0) {
+      res.status(404).send({ message: "Pessoa física não encontrada" });
     } else {
-      res.send(result);
+      res.send({ message: "Pessoa física excluída com sucesso!" });
     }
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Erro ao excluir pessoa física" });
+  }
 });
-
-app.put("/edit/pessoa-fisica", (req, res) => {
-   const { id } = req.body;
-   const { name } = req.body;
-   const { apelido } = req.body;
-   const { funcao } = req.body;
-   const { matricula } = req.body;
-   const { email } = req.body;
-   const { cpf } = req.body;
-   const { conselhodeclasse } = req.body;
-   const { numeroconselhodeclasse } = req.body;
-   const { especialidade } = req.body;
-   const { endereco } = req.body;
-   const { numero } = req.body;
-   const { bairro } = req.body;
-   const { complemento } = req.body;
-   const { municipio } = req.body;
-   const { contato3 } = req.body;
-   const { contato4 } = req.body;
-   const { anocadastro } = req.body;
-  
-   let mysql = "UPDATE formpessoafisica SET name = ?, apelido = ?, funcao = ?, matricula = ?, email = ?, cpf = ?, conselhodeclasse = ?, numeroconselhodeclasse = ?, especialidade = ?, endereco = ?, numero = ?, bairro = ?, complemento = ?, municipio = ?, contato1 = ?, contato2 = ?, anocadastro = ? WHERE id = ?";
-   db.query(mysql, [ name, apelido, funcao, matricula, email, cpf,conselhodeclasse, numeroconselhodeclasse, especialidade, endereco, numero, bairro, complemento, municipio, contato3, contato4, anocadastro, id], (err, result) => {
-   if (err) {
-     console.error(err); // Registre o erro para fins de depuração
-     res.status(500).send("Erro: Ocorreu um erro no banco de dados");
-    } else {
-     res.send(result);
-    }
-   });
-  });
- 
-
-app.delete("/delete/pessoa-fisica/:id", (req, res) => {
-  const { id } = req.params;
-  let mysql = "DELETE FROM formpessoafisica WHERE id = ?";
-  db.query(mysql, [id], (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.listen(3001, () => {
-  console.log("rodando na porta 3001");
+  console.log("Servidor rodando na porta 3001");
 });
