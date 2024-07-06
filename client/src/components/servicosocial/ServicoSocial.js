@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Header from "../header";
 import ComposicaoFamiliar from "./ComposisaoFamiliar";
-import DespesasFamiliares from "./DespesaFamiliar";
+import DespesaFamiliar from "./DespesaFamiliar";
 import CardServicoSocial from "../cards/cardFormServicoSocial";
-import CaracteristicaDomicilio from "./Caracteristicadomicilio";
 import ParticipacaoProgramasSAS from "./ParticipacaoProgramasSAS";
+import CaracteristicaDomicilio from './CaracteristicaDomicilio';
 
 
 
@@ -98,9 +98,9 @@ export default function ServicoSocial() {
         <h1 className="register-title">Serviço social</h1>
         
 
-{/* <CaracteristicaDomicilio />     */}
+<CaracteristicaDomicilio />
 
-{/* <ComposicaoFamiliar /> */}
+<ComposicaoFamiliar />
 
 <input
   type="text"
@@ -110,7 +110,6 @@ export default function ServicoSocial() {
   value={values.agentesaude}
   onChange={handleAddValues}
 />
-
 <textarea
   name="observacoes"
   className="register-input"
@@ -120,12 +119,9 @@ export default function ServicoSocial() {
 ></textarea>
 
 
-<DespesasFamiliares />
+<DespesaFamiliar />
 
-
-{/* <ParticipacaoProgramasSAS /> */}
-
-
+<ParticipacaoProgramasSAS />
 
 
 

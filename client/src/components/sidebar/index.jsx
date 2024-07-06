@@ -29,15 +29,17 @@ const Sidebar = ({ active }) => {
       <Content>
         <SidebarItem Icon={FaHome} Text="Home" path="/" />
         <SidebarItem Icon={FaChartBar} Text="Statistics" path="/statistics" />
-        <SidebarItem Icon={FaUserAlt} Text="Users" path="/users" />
+        <Link to="/pessoa-fisica"> 
+          <SidebarItem Icon={FaUserAlt} Text="Pessoa Física"  /> 
+        </Link>
+        <Link to="/servico-social" >
+          <SidebarItem Icon={FaUserAlt} Text="Serviço social"  />
+        </Link>
         <SidebarItem Icon={FaEnvelope} Text="Mail" path="/mail" />
         <SidebarItem Icon={FaRegCalendarAlt} Text="Calendar" path="/calendar" />
         <SidebarItem Icon={FaIdCardAlt} Text="Employees" path="/employees" />
         <SidebarItem Icon={FaRegFileAlt} Text="Reports" path="/reports" />
         <SidebarItem Icon={FaRegSun} Text="Settings" path="/settings" />
-        <Link to="/pessoa-fisica"> 
-          <SidebarItem Icon={FaUserAlt} Text="Pessoa Física"  /> 
-        </Link>
       </Content>
     </Container>
   )

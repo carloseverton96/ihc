@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DespesasFamiliares = () => {
+const DespesaFamiliar = () => {
   const [despesas, setDespesas] = useState({
     aluguel: 0,
     planoSaude: 0,
@@ -23,14 +23,14 @@ const DespesasFamiliares = () => {
   };
 
   const handleAddValues = () => {
-    // Cálculo do total geral das despesas
-    const totalGeral = Object.values(despesas)
-      .filter(value => typeof value === 'number')
+    // Cálculo do total geral das despesas excluindo o campo totalGeral
+    const { totalGeral, ...otherDespesas } = despesas;
+    const total = Object.values(otherDespesas)
       .reduce((acc, curr) => acc + curr, 0);
 
     setDespesas({
       ...despesas,
-      totalGeral
+      totalGeral: total
     });
   };
 
@@ -186,4 +186,4 @@ const DespesasFamiliares = () => {
   );
 };
 
-export default DespesasFamiliares;
+export default DespesaFamiliar;
