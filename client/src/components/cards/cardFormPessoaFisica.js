@@ -13,7 +13,7 @@ export default function CardPessoaFisica(props) {
         setOpen={setOpen}
         name={props.name}
         apelido={props.apelido}
-        funcao={props.funcao} 
+        sexo={props.sexo} 
         matricula={props.matricula}
         email={props.email} 
         cpf={props.cpf} 

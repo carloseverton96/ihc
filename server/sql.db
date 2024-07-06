@@ -1,0 +1,36 @@
+//criar banco de dados
+create schema `ihc`
+
+
+//tabela de pessoa fisica
+CREATE TABLE IF NOT EXISTS ihc.formpessoafisica (
+    name VARCHAR(255),
+    apelido VARCHAR(100),
+    sexo CHAR(1),
+    datanascimento DATE,
+    rg VARCHAR(20),
+    ssp VARCHAR(20),
+    cpf VARCHAR(14),
+    cartaosus VARCHAR(20),
+    endereco VARCHAR(255),
+    numero VARCHAR(10),
+    bairro VARCHAR(100),
+    municipio VARCHAR(100),
+    complemento VARCHAR(255),
+    pontodereferencia VARCHAR(255),
+    contato1 VARCHAR(20),
+    contato2 VARCHAR(20),
+    anocadastro INT,
+    pai VARCHAR(255),
+    mae VARCHAR(255),
+    responsavel VARCHAR(255),
+    bolsaFamilia BOOLEAN,
+    valorbolsafamilia DECIMAL(10, 2),
+    beneficiodeprestacaocontinuada BOOLEAN,
+    nis VARCHAR(20),
+    cid10 VARCHAR(10),
+    datainclusao DATE,
+    datadesligamento DATE,
+    usodeimagem BOOLEAN,
+    servicos TEXT
+);

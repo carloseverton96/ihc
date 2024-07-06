@@ -28,21 +28,34 @@ export default function FormPessoaFisica() {
       const response = await Axios.post("http://localhost:3001/register/pessoa-fisica", {
         name: values.name,
         apelido: values.apelido,
-        funcao: values.funcao,
-        matricula: values.matricula,
-        email: values.email,
+        sexo: values.sexo,
+        datanascimento: values.datanascimento,
+        rg: values.rg,
+        ssp: values.ssp,
         cpf: values.cpf,
-        conselhodeclasse: values.conselhodeclasse,
-        numeroconselhodeclasse: values.numeroconselhodeclasse,
-        especialidade: values.especialidade,
+        cartaosus: values.cartaosus,
         endereco: values.endereco,
         numero: values.numero,
         bairro: values.bairro,
-        complemento: values.complemento,
         municipio: values.municipio,
+        complemento: values.complemento,
+        pontodereferencia: values.pontodereferencia,
         contato1: values.contato1,
         contato2: values.contato2,
         anocadastro: values.anocadastro,
+        pai: values.pai,
+        mae: values.mae,
+        responsavel: values.responsavel,
+        bolsaFamilia: values.bolsaFamilia,
+        valorbolsafamilia: values.valorbolsafamilia,
+        beneficiodeprestacaocontinuada: values.beneficiodeprestacaocontinuada,
+        nis: values.nis,
+        cid10: values.cid10,
+        datainclusao: values.datainclusao,
+        datadesligamento: values.datadesligamento,
+        usodeimagem: values.usodeimagem,
+        servicos: values.servicos,
+
       });
 
       if (response.status === 200) {
@@ -115,7 +128,7 @@ export default function FormPessoaFisica() {
           onChange={handleAddValues}
         />
         
-        <label htmlFor="bolsaFamilia">Sexo:</label>
+        <label htmlFor="sexo">Sexo:</label>
         <select id="sexo" 
         name="sexo" 
         value={values.sexo} 
@@ -217,8 +230,8 @@ export default function FormPessoaFisica() {
         
         <input
           type="text"
-          name="Ponto de referência"
-          placeholder="pontodereferencia"
+          name="pontodereferencia"
+          placeholder="Ponto de referência"
           className="register-input"
           value={values.pontodereferencia || ""}
           onChange={handleAddValues}
@@ -288,7 +301,7 @@ export default function FormPessoaFisica() {
           onChange={handleAddValues}
         />
 
-        <label htmlFor="bolsaFamilia">Benefício de prestação continuada:</label>
+        <label htmlFor="beneficiodeprestacaocontinuada">Benefício de prestação continuada:</label>
         <select id="beneficiodeprestacaocontinuada" 
         name="beneficiodeprestacaocontinuada" 
         value={values.beneficiodeprestacaocontinuada} 
@@ -335,7 +348,7 @@ export default function FormPessoaFisica() {
         />
         
  
-        <label htmlFor="bolsaFamilia">Declaração de ciência e autorização de imagem: </label>
+        <label htmlFor="usodeimagem">Declaração de ciência e autorização de imagem: </label>
         <select id="servicos" 
         name="usodeimagem" 
         value={values.usodeimagem} 
@@ -372,27 +385,39 @@ Serviços: <select id="servicos"
 // precisa ser atualizado conforme os inputs:
 
         <CardPessoaFisica
-          key={value.id}
-          listPessoaFisica={listPessoaFisica}
-          setListPessoaFisica={setListPessoaFisica}
-          id={value.id}
-          name={value.name}
-          apelido={value.apelido}
-          funcao={value.funcao} 
-          matricula={value.matricula}
-          email={value.amail} 
-          cpf={value.cpf} 
-          conselhodeclasse={value.conselhodeclasse} 
-          numeroconselhodeclasse={value.numeroconselhodeclasse}
-          especialidade={value.especialidade} 
-          endereco={value.endereco}
-          numero={value.numero}
-          bairro={value.bairro}
-          complemento={value.complemento}
-          municipio={value.municipio}
-          contato1={value.contato1}
-          contato2={value.contato2}
-          anocadastro={value.anocadastro}
+        key={value.id}
+        listPessoaFisica={listPessoaFisica}
+        setListPessoaFisica={setListPessoaFisica}
+        id={value.id}
+        name={value.name}
+        apelido={value.apelido}
+        sexo={value.sexo}
+        datanascimento={value.datanascimento}
+        rg={value.rg}
+        ssp={value.ssp}
+        cpf={value.cpf}
+        cartaosus={value.cartaosus}
+        endereco={value.endereco}
+        numero={value.numero}
+        bairro={value.bairro}
+        municipio={value.municipio}
+        complemento={value.complemento}
+        pontodereferencia={value.pontodereferencia}
+        contato1={value.contato1}
+        contato2={value.contato2}
+        anocadastro={value.anocadastro}
+        pai={value.pai}
+        mae={value.mae}
+        responsavel={value.responsavel}
+        bolsaFamilia={value.bolsaFamilia}
+        valorbolsafamilia={value.valorbolsafamilia}
+        beneficiodeprestacaocontinuada={value.beneficiodeprestacaocontinuada}
+        nis={value.nis}
+        cid10={value.cid10}
+        datainclusao={value.datainclusao}
+        datadesligamento={value.datadesligamento}
+        usodeimagem={value.usodeimagem}
+        servicos={value.servicos}
         ></CardPessoaFisica>
         );
     })}
