@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
-import { Container } from './styles'
-import { FaBars } from 'react-icons/fa'
-import Sidebar from '../sidebar'
+import React, { useState, useRef } from 'react';
+import { Container } from './styles';
+import { FaBars } from 'react-icons/fa';
+import Sidebar from '../sidebar';
 
 const Header = () => {
-  const [sidebar, setSidebar] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const mainContentRef = useRef(null); // Reference for main content
 
-  const showSiderbar = () => setSidebar(!sidebar)
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <Container>
-      <FaBars onClick={showSiderbar} />
-      {sidebar && <Sidebar active={setSidebar} />}
+      <FaBars onClick={toggleSidebar} aria-label="Toggle navigation sidebar" />
+      {isSidebarOpen && <Sidebar active={toggleSidebar} onClose={() => setIsSidebarOpen(false)} />}
+      <div
+        ref={mainContentRef}
+        className={`main-content ${isSidebarOpen ? 'sidebar-active' : ''}`}
+      >
+        {/* Your main app content goes here */}
+      </div>
     </Container>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -71,6 +71,8 @@ export default function FormPessoaFisica() {
     <>
       
       <div className="container cardBoxForm">
+      
+
         <div className="register-container">
           <h1 className="register-title">Cadastro de Pessoa Física</h1>
 
@@ -323,6 +325,8 @@ export default function FormPessoaFisica() {
         <option value="outro">Outro</option> 
         </select>
 
+Serviços: <select id="servicos" 
+        name="servicos"/>
           {/* Outros inputs do formulário... */}
 
 
