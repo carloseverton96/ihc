@@ -83,7 +83,253 @@ export default function FormPessoaFisica() {
             onChange={handleAddValues}
           />
 
+          <input
+            type="text"
+            name="apelido"
+            placeholder="Apelido ou nome social"
+            className="register-input"
+            value={values.apelido || ""}
+            onChange={handleAddValues}
+          />
+
+<label htmlFor="sexo">Sexo:</label>
+        <select id="sexo" 
+        name="sexo" 
+        value={values.sexo} 
+        onChange={handleAddValues}> 
+        <option 
+        value="">Selecione</option> <option 
+        value="masculino">Masculino</option> <option value="feminino">Feminino</option> <option 
+        value="outro">Outro</option> 
+        </select>
+
+        <input
+          type="date"
+          name="datanascimento"
+          placeholder="Data de Nascimento"
+          className="register-input"
+          value={values.datanascimento || ""}
+          onChange={handleAddValues}
+        />
+        <input
+          type="text"
+          name="rg"
+          placeholder="RG"
+          className="register-input"
+          value={values.rg || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="text"
+          name="ssp"
+          placeholder="SSP"
+          className="register-input"
+          value={values.ssp || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="text"
+          name="cpf"
+          placeholder="CPF"
+          className="register-input"
+          value={values.cpf || ""}
+          onChange={handleAddValues}
+        />
+        
+        <input
+          type="text"
+          name="cartaosus"
+          placeholder="Cartão SUS"
+          className="register-input"
+          value={values.cartaosus || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="text"
+          name="endereco"
+          placeholder="Endereço"
+          className="register-input"
+          value={values.endereco || ""}
+          onChange={handleAddValues}
+        />
+        
+        <input
+          type="number"
+          name="numero"
+          placeholder="Nº"
+          className="register-input"
+          value={values.numero || ""}
+          onChange={handleAddValues}
+        />
+
+<input
+          type="text"
+          name="bairro"
+          placeholder="Bairro"
+          className="register-input"
+          value={values.bairro || ""}
+          onChange={handleAddValues}
+        />
+        
+        <input
+          type="text"
+          name="complemento"
+          placeholder="Complemento"
+          className="register-input"
+          value={values.complemento || ""}
+          onChange={handleAddValues}
+        />
+        
+        <input
+          type="text"
+          name="municipio"
+          placeholder="Município"
+          className="register-input"
+          value="Juazeiro do Norte"
+          onChange={handleAddValues}
+        />
+
+<input
+          type="text"
+          name="pontodereferencia"
+          placeholder="Ponto de referência"
+          className="register-input"
+          value={values.pontodereferencia || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="number"
+          name="contato1"
+          placeholder="1º Contato"
+          className="register-input"
+          value={values.contato1 || ""}
+          onChange={handleAddValues}
+        />
+        
+        <input
+          type="number"
+          name="contato2"
+          placeholder="2º Contato"
+          className="register-input"
+          value={values.contato2 || ""}
+          onChange={handleAddValues}
+        />
+
+<input
+          type="text"
+          name="pai"
+          placeholder="Nome do pai"
+          className="register-input"
+          value={values.pai || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="text"
+          name="mae"
+          placeholder="Nome da mãe"
+          className="register-input"
+          value={values.mae || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="text"
+          name="responsavel"
+          placeholder="Responsável"
+          className="register-input"
+          value={values.responsavel || ""}
+          onChange={handleAddValues}
+        />
+
+<label htmlFor="bolsaFamilia">Possui Bolsa Família: </label>
+        <select id="bolsafamilia" 
+        name="bolsafamilia" 
+        value={values.bolsafamilia} 
+        onChange={handleAddValues}> 
+        <option value="Sim">Sim</option> 
+        <option value="nao">Não</option>
+        <option value="outro">Outro</option> 
+        </select>
+      
+        <input
+          type="text"
+          name="valorbolsafamilia"
+          placeholder="Valor do Bolsa Família"
+          className="register-input"
+          value={values.complemento || ""}
+          onChange={handleAddValues}
+        />
+
+        <label htmlFor="beneficiodeprestacaocontinuada">Benefício de prestação continuada:</label>
+        <select id="beneficiodeprestacaocontinuada" 
+        name="beneficiodeprestacaocontinuada" 
+        value={values.beneficiodeprestacaocontinuada} 
+        onChange={handleAddValues}> 
+        <option value="Sim">Sim</option> 
+        <option value="não">Não</option>
+        <option value="outro">Outro</option> 
+        </select>
+
+        <input
+          type="text"
+          name="nis"
+          placeholder="nº do NIS"
+          className="register-input"
+          value={values.nis || ""}
+          onChange={handleAddValues}
+        />
+
+        <input
+          type="number"
+          name="cid10"
+          placeholder="CID 10"
+          className="register-input"
+          value={values.cid10 || ""}
+          onChange={handleAddValues}
+        />
+
+<label htmlFor="datainclusao">Data de Inclusão: </label>
+        <input
+          type="date"
+          name="datainclusao"
+          placeholder="Data de Inclusão"
+          className="register-input"
+          value={values.dataInclusao || ""}
+          onChange={handleAddValues}
+        />
+
+<label htmlFor="datadesligamento">data de desligamento: </label>
+        <input
+          type="date"
+          name="datadesligamento"
+          placeholder="Data de desligamento"
+          className="register-input"
+          value={values.datadesligamento || ""}
+          onChange={handleAddValues}
+        />
+
+<label htmlFor="usodeimagem">Declaração de ciência e autorização de imagem: </label>
+        <select id="servicos" 
+        name="usodeimagem" 
+        value={values.usodeimagem} 
+        onChange={handleAddValues}> 
+        <option value="Sim">Sim</option> 
+        <option value="não">Não</option>
+        <option value="outro">Outro</option> 
+        </select>
+
           {/* Outros inputs do formulário... */}
+
+
+
+
+
+
 
           <button onClick={handleRegisterPessoaFisica} className="register-button">
             Cadastrar
@@ -91,46 +337,52 @@ export default function FormPessoaFisica() {
 
           <br></br>
           <br></br>
-        </div>
+          </div>
 
-        {listPessoaFisica.sort((a, b) => b.id - a.id).map((value) => (
-          <CardPessoaFisica
-            key={value.id}
-            listPessoaFisica={listPessoaFisica}
-            setListPessoaFisica={setListPessoaFisica}
-            id={value.id}
-            name={value.name}
-            apelido={value.apelido}
-            sexo={value.sexo}
-            datanascimento={value.datanascimento}
-            rg={value.rg}
-            ssp={value.ssp}
-            cpf={value.cpf}
-            cartaosus={value.cartaosus}
-            endereco={value.endereco}
-            numero={value.numero}
-            bairro={value.bairro}
-            municipio={value.municipio}
-            complemento={value.complemento}
-            pontodereferencia={value.pontodereferencia}
-            contato1={value.contato1}
-            contato2={value.contato2}
-            anocadastro={value.anocadastro}
-            pai={value.pai}
-            mae={value.mae}
-            responsavel={value.responsavel}
-            bolsaFamilia={value.bolsaFamilia}
-            valorbolsafamilia={value.valorbolsafamilia}
-            beneficiodeprestacaocontinuada={value.beneficiodeprestacaocontinuada}
-            nis={value.nis}
-            cid10={value.cid10}
-            datainclusao={value.datainclusao}
-            datadesligamento={value.datadesligamento}
-            usodeimagem={value.usodeimagem}
-            servicos={value.servicos}
-          />
-        ))}
-      </div>
+      {typeof listPessoaFisica !== "undefined" && listPessoaFisica.sort((a, b) => b.id - a.id).map((value) => {
+        return (
+      // precisa ser atualizado conforme os inputs:
+
+        <CardPessoaFisica
+          key={value.id}
+          listPessoaFisica={listPessoaFisica}
+          setListPessoaFisica={setListPessoaFisica}
+          id={value.id}
+          name={value.name}
+          apelido={value.apelido}
+          sexo={value.sexo}
+          datanascimento={value.datanascimento}
+          rg={value.rg}
+          ssp={value.ssp}
+          cpf={value.cpf}
+          cartaosus={value.cartaosus}
+          endereco={value.endereco}
+          numero={value.numero}
+          bairro={value.bairro}
+          municipio={value.municipio}
+          complemento={value.complemento}
+          pontodereferencia={value.pontodereferencia}
+          contato1={value.contato1}
+          contato2={value.contato2}
+          anocadastro={value.anocadastro}
+          pai={value.pai}
+          mae={value.mae}
+          responsavel={value.responsavel}
+          bolsaFamilia={value.bolsaFamilia}
+          valorbolsafamilia={value.valorbolsafamilia}
+          beneficiodeprestacaocontinuada={value.beneficiodeprestacaocontinuada}
+          nis={value.nis}
+          cid10={value.cid10}
+          datainclusao={value.datainclusao}
+          datadesligamento={value.datadesligamento}
+          usodeimagem={value.usodeimagem}
+          servicos={value.servicos}
+        ></CardPessoaFisica>
+        );
+      })}
+
+
+</div>
     </>
   );
 }
